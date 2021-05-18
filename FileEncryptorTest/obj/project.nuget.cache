@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lJrrcK4y/kiBUlpByWPsRkr/DGv7TepM2JScnpQdsxmZN8tnaRrC/PZcXsjTuSObnc6S5VDxAZnBIwfhLaoOlQ==",
+  "dgSpecHash": "BMqZO4/4CxnZSfeHOCxMkJ3zISJwU7xjAgOse0XJCvRF/jIjsssWyO4iYCSCMrHTtWOBq5P2eW7e8ClMpFuNvA==",
   "success": true,
-  "projectFilePath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptorTest\\FileEncryptorTest.csproj",
+  "projectFilePath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptorTest\\FileEncryptorTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SamiHarju\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\SamiHarju\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

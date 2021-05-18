@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b5Cmt785uy5TW9lghO4R++j1MUFXyqR9i+2BXfMWcajuwFhxM3WwU+S9rPwpIQD2qU1Y61Zvnm+Yye6CEe8e6w==",
+  "dgSpecHash": "gS0MrgUJPv58tRtKd3vnBH4OjMqT2u4g2dczaRL1PgmkF9VmZbioKXtOySpvSP0mNLSkwZCIPAatBYMIiByAgg==",
   "success": true,
-  "projectFilePath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj",
+  "projectFilePath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SamiHarju\\.nuget\\packages\\microsoft.csharp\\4.4.1\\microsoft.csharp.4.4.1.nupkg.sha512",
     "C:\\Users\\SamiHarju\\.nuget\\packages\\system.commandline\\2.0.0-beta1.21216.1\\system.commandline.2.0.0-beta1.21216.1.nupkg.sha512",

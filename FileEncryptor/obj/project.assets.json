@@ -205,11 +205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj",
+      "projectUniqueName": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj",
       "projectName": "FileEncryptor",
-      "projectPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj",
+      "projectPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj",
       "packagesPath": "C:\\Users\\SamiHarju\\.nuget\\packages\\",
-      "outputPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptor\\obj\\",
+      "outputPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SamiHarju\\AppData\\Roaming\\NuGet\\NuGet.Config"

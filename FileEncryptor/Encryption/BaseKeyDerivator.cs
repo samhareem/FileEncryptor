@@ -1,3 +1,4 @@
+using System;
 using System.Security.Cryptography;
 
 namespace FileEncryptor.Encryption
@@ -16,6 +17,10 @@ namespace FileEncryptor.Encryption
         /// <param name="saltSize">Length of salt in bytes.</param>
         public BaseKeyDerivator(string password, int saltSize)
         {
+            if (saltSize < 8)
+            {
+                throw new ArgumentException("Salt must be at least 8 bytes long.");
+            }
             _keyDerivator = new Rfc2898DeriveBytes(password, saltSize);
         }
         

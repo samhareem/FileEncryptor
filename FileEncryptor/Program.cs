@@ -1,9 +1,7 @@
 ﻿using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using FileEncryptor.Encryption;
 
 namespace FileEncryptor
@@ -50,18 +48,6 @@ namespace FileEncryptor
             rootCommand.Handler = CommandHandler.Create<Operation, FileInfo, FileInfo, string, bool>(
                 (operation, input, output, password, overwrite) =>
                 {
-                    if (!input.Exists)
-                    {
-                        Console.WriteLine("Input file does not exist.");
-                        return;
-                    }
-                    
-                    if (output.Exists && !overwrite)
-                    {
-                        Console.WriteLine("Output file exists and overwrite argument is not specified.");
-                        return;
-                    }
-
                     switch (operation)
                     {
                         case Operation.Encrypt:
@@ -70,19 +56,29 @@ namespace FileEncryptor
                                 password = _generator.Generate(32);
                                 Console.WriteLine($"Encoding file with generated password: {password}");
                             }
-                            _encryptor.EncryptFile(input, output, password);
+
+                            try
+                            {
+                                _encryptor.EncryptFile(input, output, password, overwrite);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Encryption failed with following exception:");
+                                Console.WriteLine(e.GetType() + " - " + e.Message);
+                            }
+                            
                             break;
                         case Operation.Decrypt:
-                            if (String.IsNullOrWhiteSpace(password))
+                            try
                             {
-                                Console.WriteLine("Decrypt operation requires password to be supplied.");
-                                return;
+                                _encryptor.DecryptFile(input, output, password, overwrite);
                             }
-
-                            _encryptor.DecryptFile(input, output, password);
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Encryption failed with following exception:");
+                                Console.WriteLine(e.GetType() + " - " + e.Message);
+                            }
                             break;
-                        default:
-                            throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
                     }
                 });
             return rootCommand;

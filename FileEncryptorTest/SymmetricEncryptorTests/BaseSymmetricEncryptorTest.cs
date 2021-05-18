@@ -8,6 +8,7 @@ namespace FileEncryptorTest.SymmetricEncryptorTests
     public class BaseSymmetricEncryptorTest
     {
         private FileInfo _validInputFile = new FileInfo("../../../SymmetricEncryptorTests/Input.txt");
+        private FileInfo _validOutputFile = new FileInfo("../../../SymmetricEncryptorTests/Output.txt");
         private string _password = "testPassword";
         
         [Fact]
@@ -15,9 +16,8 @@ namespace FileEncryptorTest.SymmetricEncryptorTests
         {
             var encryptor = new BaseSymmetricEncryptor();
             var nonExistantFile = new FileInfo("Input2.txt");
-            var outputFile = new FileInfo("Output.txt");
-            
-            Assert.Throws<FileNotFoundException>(() => encryptor.EncryptFile(nonExistantFile, outputFile, _password));
+
+            Assert.Throws<FileNotFoundException>(() => encryptor.EncryptFile(nonExistantFile, _validOutputFile, _password));
         }
         
         [Fact]
@@ -26,8 +26,9 @@ namespace FileEncryptorTest.SymmetricEncryptorTests
             var encryptor = new BaseSymmetricEncryptor();
             var outputFile = new FileInfo("Output.txt");
             
-            encryptor.EncryptFile(_validInputFile, outputFile, _password);
+            encryptor.EncryptFile(_validInputFile, outputFile, _password, true);
             
+            outputFile.Refresh();
             Assert.True(outputFile.Exists);
 
             var inputFileContents = new byte[10];
@@ -49,41 +50,40 @@ namespace FileEncryptorTest.SymmetricEncryptorTests
         public void Decrypt_InputFileNotFound_ThrowsException()
         {
             var encryptor = new BaseSymmetricEncryptor();
-            var nonExistantFile = new FileInfo("Output.txt");
-            var outputFile = new FileInfo("Decrypt.txt");
+            var nonExistantFile = new FileInfo("Output2.txt");
+            var outputFile = new FileInfo("TempDecrypt.txt");
             
             Assert.Throws<FileNotFoundException>(() => encryptor.EncryptFile(nonExistantFile, outputFile, _password));
+            
+            outputFile.Delete();
         }
 
         [Fact]
         public void Decrypt_WrongPassword_ThrowsCryptographicException()
         {
             var encryptor = new BaseSymmetricEncryptor();
-            var outputFile = new FileInfo("Output.txt");
-            var decryptedFile = new FileInfo("Decrypt.txt");
+            var decryptedFile = new FileInfo("TempDecrypt2.txt");
+
+            Assert.Throws<CryptographicException>(() => encryptor.DecryptFile(_validOutputFile, decryptedFile, "wrongPassword", true));
             
-            encryptor.EncryptFile(_validInputFile, outputFile, _password);
-            
-            Assert.Throws<CryptographicException>(() => encryptor.DecryptFile(outputFile, decryptedFile, "wrongPassword"));
-            
-            outputFile.Delete();
+            decryptedFile.Delete();
         }
         
         [Fact]
         public void EncryptDecrypt_DecryptedFileEqualsOriginal_Ok()
         {
             var encryptor = new BaseSymmetricEncryptor();
-            var outputFile = new FileInfo("Output.txt");
-            var decryptedFile = new FileInfo("Decrypt.txt");
+            var decryptedFile = new FileInfo("TempDecrypt3.txt");
             
-            encryptor.EncryptFile(_validInputFile, outputFile, _password);
-            encryptor.DecryptFile(outputFile, decryptedFile, _password);
+            encryptor.EncryptFile(_validInputFile, _validOutputFile, _password, true);
+            encryptor.DecryptFile(_validOutputFile, decryptedFile, _password, true);
             
             var inputFileContents = new byte[_validInputFile.Length];
             var inputFileStream = _validInputFile.OpenRead();
             inputFileStream.Read(inputFileContents, 0, (int) _validInputFile.Length);
             inputFileStream.Dispose();
             
+            decryptedFile.Refresh();
             var decryptedFileContents = new byte[decryptedFile.Length];
             var decryptedFileStream = decryptedFile.OpenRead();
             decryptedFileStream.Read(decryptedFileContents, 0, (int) decryptedFile.Length);
@@ -91,7 +91,6 @@ namespace FileEncryptorTest.SymmetricEncryptorTests
             
             Assert.Equal(inputFileContents, decryptedFileContents);
             
-            outputFile.Delete();
             decryptedFile.Delete();
         }
     }

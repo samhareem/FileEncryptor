@@ -5748,11 +5748,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptorTest\\FileEncryptorTest.csproj",
+      "projectUniqueName": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptorTest\\FileEncryptorTest.csproj",
       "projectName": "FileEncryptorTest",
-      "projectPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptorTest\\FileEncryptorTest.csproj",
+      "projectPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptorTest\\FileEncryptorTest.csproj",
       "packagesPath": "C:\\Users\\SamiHarju\\.nuget\\packages\\",
-      "outputPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptorTest\\obj\\",
+      "outputPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptorTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SamiHarju\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5767,8 +5767,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj": {
-              "projectPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptorCore\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj"
+            "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj": {
+              "projectPath": "C:\\Sync\\Koulu\\Secure Programming\\FileEncryptor\\FileEncryptor\\FileEncryptor\\FileEncryptor.csproj"
             }
           }
         }
